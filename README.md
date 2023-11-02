@@ -53,4 +53,4 @@ sudo systemctl daemon-reload
 
 # Wiring
 
-![](img/skr-pico-reset.png)
+![](skr-pico-reset.png)
