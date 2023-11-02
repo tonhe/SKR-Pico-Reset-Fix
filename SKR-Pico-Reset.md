@@ -1,15 +1,16 @@
 # Work Around: SKR Pico not present after booting or rebooting the Rpi
 
-
 ## Symptom
 
 When booting or rebooting the Raspberry Pi, the SKR Pico is not present on the USB bus. In ssh `dmesg` will report "Unable to enumerate", and `lsusb` will not show the board. Pressing the "RESET" button on the SKR Pico often fixes the issue.
+
+For BTT Pi users, see https://github.com/tonhe/SKR-Pico-Reset-Fix/BTTPi/
 
 ## Workaround
 
 Since no real solution exists so far, we can implement a mechanism to reset the SKR Pico without needing to physically press the RESET button.
 
-- **Connect a dupont-style jumper cable from the SKR Pico's Reset pin on the SWD Header to the Raspberry Pi GPIO 19 (Pin 35).** Refer to the attached picture for details. This allows us to control the RESET mechanism of the SKR Pico remotely.
+- **Connect a dupont-style jumper cable from the SKR Pico's Reset pin on the SWD Header to the Raspberry Pi GPIO 20 (Pin 35).** Refer to the attached picture for details. This allows us to control the RESET mechanism of the SKR Pico remotely.
 - **Copy and paste the following commands (right-click in Putty to paste) to create a restart script**:
 ```
 cat << EOT > /usr/local/bin/restart-skr-pico.sh
