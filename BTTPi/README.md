@@ -38,11 +38,12 @@ port=/dev/serial/by-id/usb-Klipper_rp2040_<<<YOUR_ID_HERE>>>-if00
 while ! [ -e "$port" ]
 do
    echo "SKR is not found"
-   gpioset -D open-drain gpiochip0 79=0
-   gpioset -D open-source gpiochip0 79=0
+   /usr/bin/gpioset -D open-drain gpiochip0 79=0
+   /usr/bin/gpioset -D open-source gpiochip0 79=0
    sleep 1
 done
 echo "SKR is found!"
+exit 0
 ```
 
 
